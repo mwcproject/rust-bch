@@ -24,12 +24,6 @@ Features
 
 Add ```bch = "0.1.0"``` to Cargo.toml
 
-# Requirements
-
-Rust nightly is required for documentation due to a bug fix which has not yet made it to stable.
-
-Run ./configure once to setup nightly.
-
 # Known limitations
 
 This library should not be used for consensus code because its validation checks are incomplete.
