@@ -2,8 +2,8 @@
 name = "bch"
 version = "0.1.1"
 description = "A Rust library for working with Bitcoin Cash"
-repository = "https://github.com/brentongunning/rust-bch"
-authors = ["Brenton Gunning <brentongunning@gmail.com>"]
+repository = "https://github.com/haplo/rust-bch"
+authors = ["Brenton Gunning <brentongunning@gmail.com>", "Fidel Ramos <f@fidelramos.net>"]
 keywords = ["bitcoin", "cash", "crypto"]
 license = "MIT"
 
