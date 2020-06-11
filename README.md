@@ -4,10 +4,12 @@ A library to build Bitcoin Cash (BCH) applications in Rust.
 
 [Documentation](https://docs.rs/bch/)
 
-**Author's Note**: Going forward, I will be focusing my efforts on Bitcoin SV and [rust-sv](https://github.com/brentongunning/rust-sv) for reasons that are best stated by [unwriter](https://medium.com/@_unwriter/the-resolution-of-the-bitcoin-cash-experiment-52b86d8cd187). I will not be actively developing this library, however patches are still welcome.
+This library was [originally developed by Brenton
+Gunning](https://github.com/brentongunning/rust-bch/), who discontinued it in favor of
+[rust-sv](https://github.com/brentongunning/rust-sv). This is a fork to resume active development.
 
 
-Features
+Features:
 
 * P2P protocol messages (construction and serialization)
 * Address generation (cashaddr and legacy)
@@ -18,11 +20,17 @@ Features
 * Mainnet and testnet support
 * Various Bitcoin primitives
 
-*Not Included*: OP_CHECKDATASIG, CTOR validation
+Missing features:
+
+* [`OP_CHECKDATASIG`](https://github.com/haplo/rust-bch/issues/2)
+* [Canonical Transaction Ordering (CTOR)](https://github.com/haplo/rust-bch/issues/3)
+* [Schnorr signatures](https://github.com/haplo/rust-bch/issues/4)
+
+Patches welcome!
 
 # Installation
 
-Add ```bch = "0.1.0"``` to Cargo.toml
+Add ```bch = "0.2.0"``` to *Cargo.toml* in your project.
 
 # Known limitations
 
@@ -30,12 +38,18 @@ This library should not be used for consensus code because its validation checks
 
 # Comparison with other Rust libraries
 
-*rust-bitcoin* - rust-bch has no ties to rust-bitcoin. This library can do everything rust-bitcoin can do and more for Bitcoin Cash.
+*rust-sv* - started as a fork of rust-bch, in active development. rust-bch will pull code from it as
+long as both libraries remain compatible.
 
-*parity-bitcoin* - The parity Bitcoin client is a full node in Rust. Its code is more full-featured and also more complex.
+*rust-bitcoin* - rust-bch has no ties to rust-bitcoin. This library can do everything rust-bitcoin
+can do and more for Bitcoin Cash.
 
-*bitcrust* - The bitcrust project is strong in some areas and lacking in others. The two projects could be used together.
+*parity-bitcoin* - The parity Bitcoin client is a full node in Rust. Its code is more full-featured
+and also more complex.
+
+*bitcrust* - The bitcrust project is strong in some areas and lacking in others. The two projects
+could be used together.
 
 # License
 
-rust-bch is licensed under the MIT license.
+*rust-bch* is licensed under the MIT license.
