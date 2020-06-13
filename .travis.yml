@@ -1,0 +1,51 @@
+language: rust
+sudo: false
+
+# Since most OS-specific code has moved to the getrandom crate, we require
+# few target-specific tests here.
+
+matrix:
+  include:
+    # - rust: 1.32.0
+    #   os: linux
+    #   name: "Linux, 1.32.0"
+
+    - rust: stable
+      os: linux
+      name: "Linux, stable"
+
+    # - rust: stable
+    #   os: osx
+    #   name: "OSX+iOS, stable"
+    #   env: TARGET=x86_64-apple-darwin
+    #   install:
+    #     - rustup target add aarch64-apple-ios
+    #   script:
+    #     - bash ci/script.sh
+    #     - cargo build --target=aarch64-apple-ios
+
+    # - rust: nightly
+    #   os: linux
+    #   name: "Linux, nightly"
+
+before_install:
+  - set -e
+  - rustup self update
+
+install:
+  - sh ci/install.sh
+  - source ~/.cargo/env || true
+
+script:
+  - bash ci/script.sh
+
+after_script: set +e
+
+cache: cargo
+before_cache:
+  # Travis can't cache files that are not readable by "others"
+  - chmod -R a+r $HOME/.cargo
+
+notifications:
+  email:
+    on_success: never
