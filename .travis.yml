@@ -16,13 +16,8 @@ matrix:
 
     # - rust: stable
     #   os: osx
-    #   name: "OSX+iOS, stable"
+    #   name: "OSX, stable"
     #   env: TARGET=x86_64-apple-darwin
-    #   install:
-    #     - rustup target add aarch64-apple-ios
-    #   script:
-    #     - bash ci/script.sh
-    #     - cargo build --target=aarch64-apple-ios
 
     # - rust: nightly
     #   os: linux
