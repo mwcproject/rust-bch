@@ -16,13 +16,6 @@ else
     TARGET="--target $TARGET"
 fi
 
-# ALLOC defaults on; is disabled for rustc < 1.36
-if [ -z $ALLOC ]; then
-    ALLOC=1
-fi
-
-# NIGHTLY defaults off
-
 
 # ----- Script -----
 
