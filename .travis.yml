@@ -1,9 +1,6 @@
 language: rust
 sudo: false
 
-# Since most OS-specific code has moved to the getrandom crate, we require
-# few target-specific tests here.
-
 matrix:
   include:
     # - rust: 1.32.0
