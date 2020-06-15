@@ -27,6 +27,8 @@ Missing features:
 * [`OP_CHECKDATASIG`](https://github.com/haplo/rust-bch/issues/2)
 * [Canonical Transaction Ordering (CTOR)](https://github.com/haplo/rust-bch/issues/3)
 * [Schnorr signatures](https://github.com/haplo/rust-bch/issues/4)
+* [`OP_REVERSEBYTES`](https://github.com/haplo/rust-bch/issues/12)
+* [SLP tokens](https://github.com/haplo/rust-bch/issues/13)
 
 Patches welcome!
 
