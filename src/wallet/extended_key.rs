@@ -35,7 +35,7 @@ pub enum ExtendedKeyType {
     Private,
 }
 
-/// A private or public key in an hierarchial deterministic wallet
+/// A private or public key in an hierarchical deterministic wallet
 #[derive(Clone, Copy)]
 pub struct ExtendedKey(pub [u8; 78]);
 
