@@ -1,5 +1,5 @@
 use digest::{FixedOutput, Input};
-use ring::digest::{digest, SHA1, SHA256};
+use ring::digest::{digest, SHA1_FOR_LEGACY_USE_ONLY, SHA256};
 use ripemd160::{Digest, Ripemd160};
 use script::op_codes::*;
 use script::stack::{decode_bool, decode_num, encode_num, encode_num_overflow, pop_bool, pop_num};
@@ -615,7 +615,7 @@ pub fn eval<T: Checker>(script: &[u8], checker: &mut T) -> Result<()> {
             OP_SHA1 => {
                 check_stack_size(1, &stack)?;
                 let v = stack.pop().unwrap();
-                let result = digest(&SHA1, &v);
+                let result = digest(&SHA1_FOR_LEGACY_USE_ONLY, &v);
                 stack.push(result.as_ref().to_vec());
             }
             OP_SHA256 => {
