@@ -46,7 +46,9 @@ pub fn generate_signature(
     let secret_key = SecretKey::from_slice(private_key)?;
     let mut signature = secp.sign(&message, &secret_key);
     signature.normalize_s();
-    let mut sig = signature.serialize_der();
-    sig.push(sighash_type);
-    Ok(sig)
+    let sig = signature.serialize_der();
+    let mut res : Vec<u8> = Vec::new();
+    res.extend_from_slice(&*sig);
+    res.push(sighash_type);
+    Ok(res)
 }
