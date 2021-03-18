@@ -4,13 +4,13 @@ use rust_base58::base58::{FromBase58, ToBase58};
 use util::{sha256d, Error, Hash160, Result};
 
 /// Converts a public key hash to its legacy address
-pub fn legacyaddr_encode(hash160: &Hash160, addr_type: AddressType, network: Network) -> String {
-    let mut v = Vec::with_capacity(1 + hash160.0.len() + 2);
+pub fn legacyaddr_encode(hash160: &[u8], addr_type: AddressType, network: Network) -> String {
+    let mut v = Vec::with_capacity(1 + hash160.len() + 2);
     v.push(match addr_type {
         AddressType::P2PKH => network.legacyaddr_pubkeyhash_flag(),
         AddressType::P2SH => network.legacyaddr_script_flag(),
     });
-    v.extend_from_slice(&hash160.0);
+    v.extend_from_slice(&hash160);
     let checksum = sha256d(&v).0;
     v.push(checksum[0]);
     v.push(checksum[1]);
